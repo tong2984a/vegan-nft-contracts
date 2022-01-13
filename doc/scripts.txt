@@ -1,0 +1,34 @@
+# SYMBOL
+save VEG in deploy.js
+
+
+# COIN JPEG
+## Upload Image for Wallet Registration
+curl -X POST -F file=@coin.jpeg "https://ipfs.infura.io:5001/api/v0/add"
+> {"Name":"coin.jpeg","Hash":"QmdkuYAXeHW5biytdw5Ff626AkdsmocRW4vaGYTMNK6qWv","Size":"8929"}
+
+
+# COIN MP4
+## Upload Image for Landing Page
+curl -X POST -F file=@pay-a-vegan.mp4 "https://ipfs.infura.io:5001/api/v0/add"
+> https://ipfs.infura.io/ipfs/QmdCRJtV5zppqUD9vFwFwHSru6SSdQokQZZAKabuPTWKxE
+
+## Upload Image for NFT tokenURI
+same as above
+
+## Upload tokenURI.json
+curl -X POST -F file=@tokenURI.json "https://ipfs.infura.io:5001/api/v0/add"
+> https://ipfs.infura.io/ipfs/QmU3nVALJWomQSwqdn5MirCAwZRw7BynJFChLHUAeTEQn6
+
+
+# LOGO JPEG
+## Shortcut Icon
+save as /public/pay-a-vegan.jpeg
+
+## Upload Logo for contractURI
+curl -X POST -F file=@pay-a-vegan.jpeg "https://ipfs.infura.io:5001/api/v0/add"
+> https://ipfs.infura.io/ipfs/QmRegzHn6WEhPGoVggbppheFXY7xEYQcoMs7LCdjgmBzRz
+
+## Upload contractURI.json
+curl -X POST -F file=@contractURI.json "https://ipfs.infura.io:5001/api/v0/add"
+> https://ipfs.infura.io/ipfs/QmZU1U69Sj8ahignYMfWcDcKE52xtJNSMQzMhagbiHg2mS

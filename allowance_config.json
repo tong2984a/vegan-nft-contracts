@@ -1,0 +1,77 @@
+{
+  "localhost": {
+    "contract_owner" : {
+      "name" : "Cheese",
+      "address" : "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+    },
+    "spender" : {
+      "name" : "Hardhat1",
+      "address" : "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "approve_amount" : "10000"
+    },
+    "store_owner" : {
+      "name" : "Hardhat2",
+      "address" : "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+    }
+  },
+  "rinkeby": {
+    "contract_owner" : {
+      "name" : "Fire",
+      "address" : "0x95e5D0CedEBf9678756fCC86c5CC19E7693a4690"
+    },
+    "spender" : {
+      "name" : "Sinp",
+      "address" : "0x7fAE0Af9E567d9Ed29ed957fA3914cB373E18B23",
+      "approve_amount" : "10000"
+    },
+    "store_owner" : {
+      "name" : "StoreOwner",
+      "address" : "0xf730bca8F018795Bc863b46Bc1b841000da99C5B"
+    }
+  },
+  "matic": {
+    "contract_owner" : {
+      "name" : "Treasury",
+      "address" : "0x31b4cE41b12eBb0d1E7beEE20997069EBC20545D"
+    },
+    "spender" : {
+      "name" : "Sinp",
+      "address" : "0x7fAE0Af9E567d9Ed29ed957fA3914cB373E18B23",
+      "approve_amount" : "10000"
+    },
+    "store_owner" : {
+      "name" : "StoreOwner",
+      "address" : "0xf730bca8F018795Bc863b46Bc1b841000da99C5B"
+    }
+  },
+  "mumbai": {
+    "contract_owner" : {
+      "name" : "Treasury",
+      "address" : "0x31b4cE41b12eBb0d1E7beEE20997069EBC20545D"
+    },
+    "spender" : {
+      "name" : "Sinp",
+      "address" : "0x7fAE0Af9E567d9Ed29ed957fA3914cB373E18B23",
+      "approve_amount" : "10000"
+    },
+      "spender.history" : {
+        "name" : "SY2",
+        "address" : "0xeB2B555cD1DbD7A611d0DFFCC70aF783Dd3e5f1b",
+        "approve_amount" : "10000"
+      },
+      "spender.history" : {
+        "name" : "SY1",
+        "address" : "0x52Eb0BE66962b1723A62A1DFF3e2C1281a44D527",
+        "approve_amount" : "10000"
+      },
+      "spender.history" : {
+        "name" : "ClubMember",
+        "address" : "0x05C51629Af33c6Fb143B2d24a9EB3fDe2EA318a7",
+        "approve_amount" : "10000"
+      },
+    "store_owner" : {
+      "name" : "StoreOwner",
+      "address" : "0xf730bca8F018795Bc863b46Bc1b841000da99C5B"
+    }
+  }
+}

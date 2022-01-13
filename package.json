@@ -1,0 +1,39 @@
+{
+  "name": "polygon-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.2.0",
+    "axios": "^0.21.1",
+    "chai": "^4.3.4",
+    "electron": "^15.3.1",
+    "ethereum-waffle": "^3.4.0",
+    "firebase": "^9.4.0",
+    "hardhat": "^2.4.1",
+    "ipfs-http-client": "50.1.2",
+    "merge-images": "^2.0.0",
+    "nearest-pantone": "^1.0.1",
+    "next": "11.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "web3modal": "^1.9.3"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.3",
+    "@openzeppelin/contracts-upgradeable": "^4.4.1",
+    "@openzeppelin/hardhat-upgrades": "^1.12.0",
+    "autoprefixer": "^10.2.6",
+    "eslint": "7.29.0",
+    "eslint-config-next": "11.0.1",
+    "ethers": "^5.5.2",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.4"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Pay-A-Vegan",
+  "description": "Pay-A-Vegan is a vegan marketplace where you can buy, sell, and bid feature products.",
+  "image": "https://ipfs.infura.io/ipfs/QmRegzHn6WEhPGoVggbppheFXY7xEYQcoMs7LCdjgmBzRz",
+  "external_link": "https://www.pay-a-vegan.com",
+  "seller_fee_basis_points": 100,
+  "fee_recipient": "0x31b4cE41b12eBb0d1E7beEE20997069EBC20545D"
+}
