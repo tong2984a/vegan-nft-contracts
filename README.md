@@ -33,6 +33,7 @@
 
 ### Configuration
 -  :exclamation: :point_right: save your private key file in a '.secret' file and put it at the vegan-nft-contracts folder.
+
 -  :exclamation: :point_right: use the cli_config.json to control how you manage your nfts by using the cli scripts.
 
 # Setup -- TestNet
