@@ -32,14 +32,3 @@ curl -X POST -F file=@pay-a-vegan.jpeg "https://ipfs.infura.io:5001/api/v0/add"
 ## Upload contractURI.json
 curl -X POST -F file=@contractURI.json "https://ipfs.infura.io:5001/api/v0/add"
 > https://ipfs.infura.io/ipfs/QmZU1U69Sj8ahignYMfWcDcKE52xtJNSMQzMhagbiHg2mS
-
-
-rinkeby
-VeganGift 2.4947
-after deploy 2.4939
-after cli_1a_create_nft.js 2.4878
-after cli_1b_put_nft_on_market.js 2.3833
-after cli_2_fetch_nft.js
-after cli_3a_take_nft_off_market.js
-after cli_3b_burn_nft.js
-after cli_4_check_wallets.js
