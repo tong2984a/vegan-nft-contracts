@@ -16,8 +16,8 @@
   },
   "rinkeby": {
     "contract_owner" : {
-      "name" : "Fire",
-      "address" : "0x95e5D0CedEBf9678756fCC86c5CC19E7693a4690"
+      "name" : "VeganGift",
+      "address" : "0x60293b1Be3214ae809E847aFeB1fF280de0EB666"
     },
     "spender" : {
       "name" : "Sinp",
@@ -46,8 +46,8 @@
   },
   "mumbai": {
     "contract_owner" : {
-      "name" : "Treasury",
-      "address" : "0x31b4cE41b12eBb0d1E7beEE20997069EBC20545D"
+      "name" : "MonkeyTest",
+      "address" : "0xE5C9e41248aEe0BA21f60EFA00aEF8aBb68d9d8d"
     },
     "spender" : {
       "name" : "Sinp",

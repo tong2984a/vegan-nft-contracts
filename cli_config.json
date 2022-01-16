@@ -1,14 +1,14 @@
 {
   "cli_1a_create_nft" :
     {
-      "count" : 20
+      "count" : 10
     },
   "cli_1b_put_nft_on_market" :
     {
       "price" : 0.00001,
       "tokens" :
       {
-        "firstTokenId" : 1,
+        "firstTokenId" : 11,
         "lastTokenId" : 20
       }
     },
@@ -16,16 +16,16 @@
     {
       "items" :
       {
-        "firstItemId" : 1,
-        "lastItemId" : 20
+        "firstItemId" : 7,
+        "lastItemId" : 8
       }
     },
   "cli_3b_burn_nft" :
     {
       "tokens" :
       {
-        "firstTokenId" : 1,
-        "lastTokenId" : 20
+        "firstTokenId" : 3,
+        "lastTokenId" : 3
       }
     }
 }

@@ -84,6 +84,16 @@ contract NFTMarket is Initializable, ReentrancyGuardUpgradeable, UUPSUpgradeable
     bool sold
   );
 
+  event MarketItemSold (
+    uint indexed itemId,
+    address indexed nftContract,
+    uint256 indexed tokenId,
+    address seller,
+    address owner,
+    uint256 price,
+    bool sold
+  );
+
   // Emitted when the stored value changes
   event ValueChanged(uint256 value);
 
@@ -156,6 +166,16 @@ contract NFTMarket is Initializable, ReentrancyGuardUpgradeable, UUPSUpgradeable
     idToMarketItem[itemId].sold = true;
     _itemsSold.increment();
     uint unsoldItemCount = _itemIds.current() - _itemsSold.current();
+
+    emit MarketItemSold(
+      itemId,
+      nftContract,
+      tokenId,
+      address(0),
+      msg.sender,
+      price,
+      true
+    );
   }
 
   /* Returns all unsold market items */
