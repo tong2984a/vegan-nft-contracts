@@ -48,10 +48,12 @@ Refer to the above "In a second terminal"
 
      $ npx hardhat run scripts/deploy.js --network rinkeby
 
-     $ npx hardhat run scripts/cli1_create_nft.js --network rinkeby
+      $ npx hardhat run scripts/cli_1a_create_nft.js --network rinkeby
 
-     $ npx hardhat run scripts/cli2_fetch_nft.js --network rinkeby
+      $ npx hardhat run scripts/cli_1b_put_nft_on_market.js --network rinkeby
 
-     $ npx hardhat run scripts/cli3_burn_nft.js --network rinkeby
+      $ npx hardhat run scripts/cli_2_fetch_nft.js --network rinkeby
 
-     $ npx hardhat run scripts/cli4_check_wallets.js --network rinkeby
+      $ npx hardhat run scripts/cli_3a_take_nft_off_market.js --network rinkeby
+
+      $ npx hardhat run scripts/cli_3b_burn_nft.js --network rinkeby
