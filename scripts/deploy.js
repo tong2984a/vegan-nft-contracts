@@ -21,11 +21,13 @@ async function main () {
   await nft.addMinter(owner.address)
 
   let contract_owner = allowance_config[hre.network.name]['contract_owner']['address']
+  let envChain = allowance_config[hre.network.name]['chain']
 
   let config = `
   export const nftmarketaddress = "${nftMarket.address}"
   export const nftaddress = "${nft.address}"
-  export const network_name = "${hre.network.name}"
+  export const envChainName = "${envChain.name}"
+  export const envChainId = "${envChain.id}"
   export const contract_owner = "${contract_owner}"
   `
   let data = JSON.stringify(config)

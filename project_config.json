@@ -12,6 +12,20 @@
     "store_owner" : {
       "name" : "Hardhat2",
       "address" : "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+    },
+    "chain" : {
+      "name" : "localhost",
+      "id" : "0x7a69"
+    }
+  },
+  "ropsten": {
+    "contract_owner" : {
+      "name" : "",
+      "address" : ""
+    },
+    "chain" : {
+      "name" : "ropsten",
+      "id" : "0x3"
     }
   },
   "rinkeby": {
@@ -27,6 +41,10 @@
     "store_owner" : {
       "name" : "StoreOwner",
       "address" : "0xf730bca8F018795Bc863b46Bc1b841000da99C5B"
+    },
+    "chain" : {
+      "name" : "rinkeby",
+      "id" : "0x4"
     }
   },
   "matic": {
@@ -42,6 +60,10 @@
     "store_owner" : {
       "name" : "StoreOwner",
       "address" : "0xf730bca8F018795Bc863b46Bc1b841000da99C5B"
+    },
+    "chain" : {
+      "name" : "matic",
+      "id" : "0x89"
     }
   },
   "mumbai": {
@@ -72,6 +94,10 @@
     "store_owner" : {
       "name" : "StoreOwner",
       "address" : "0xf730bca8F018795Bc863b46Bc1b841000da99C5B"
+    },
+    "chain" : {
+      "name" : "mumbai",
+      "id" : "0x13881"
     }
   }
 }
