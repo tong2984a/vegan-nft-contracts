@@ -8,8 +8,8 @@
       "price" : 0.00001,
       "tokens" :
       {
-        "firstTokenId" : 11,
-        "lastTokenId" : 20
+        "firstTokenId" : 1,
+        "lastTokenId" : 10
       }
     },
   "cli_3a_take_nft_off_market" :
@@ -24,8 +24,8 @@
     {
       "tokens" :
       {
-        "firstTokenId" : 3,
-        "lastTokenId" : 3
+        "firstTokenId" : 7,
+        "lastTokenId" : 8
       }
     }
 }

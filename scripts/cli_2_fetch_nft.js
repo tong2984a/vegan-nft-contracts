@@ -1,5 +1,5 @@
 
-const contract_config = require('../contract_config.json')
+const contract_config = require('../config.json')
 const { upgrades } = require('hardhat');
 const hre = require("hardhat");
 
