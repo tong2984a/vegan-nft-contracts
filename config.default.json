@@ -1,16 +1,16 @@
 {
     "token": {
-        "symbol": "FIRE",
-        "name": "SlashFIRE",
-        "price": "0.00001",
+        "symbol": "__YOUR TOKEN SYMBOL__",
+        "name": "__YOUR TOKEN NAME__",
+        "price": "__YOUR TOKEN UNIT PRICE__",
         "wallet_watchAsset": {
-            "image": "https://ipfs.infura.io/ipfs/QmSeVUE9oHCuiszAUgfP9XNXtdZhxa2J827HDAyZDxUupe"
+            "image": "__YOUR IMAGE URL__"
         },
         "tokenURI.json": {
-            "hash": "QmU3nVALJWomQSwqdn5MirCAwZRw7BynJFChLHUAeTEQn6"
+            "hash": "__YOUR FILE IPFS HASH__"
         },
         "contractURI.json": {
-            "hash": "QmZU1U69Sj8ahignYMfWcDcKE52xtJNSMQzMhagbiHg2mS"
+            "hash": "__YOUR FILE IPFS HASH__"
         }
     },
     "chains": {
@@ -66,9 +66,9 @@
         }
     },
     "deployed": {
-        "nftmarketaddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
-        "nftaddress": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
-        "auctionAddress": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "nftmarketaddress": "",
+        "nftaddress": "",
+        "auctionAddress": "",
         "envChain": {
             "name": "localhost",
             "id": "0x7a69"

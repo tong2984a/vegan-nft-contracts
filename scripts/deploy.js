@@ -1,46 +1,54 @@
-// scripts/deploy_upgradeable_box.js
+const cli_config = require('../cli_config.json')
 const { upgrades } = require('hardhat')
 const hre = require("hardhat")
 const fs = require('fs')
-const chain_config = require('../chain_config.json')
+const config = require('../config.json')
 
 async function main () {
+  let accounts = await ethers.getSigners()
+  let owner = accounts[0]
+  let beneficiary = accounts[2]
+  let duration = cli_config['deploy']['auction']['duration_in_seconds'] //unit in sec
+
+  const Auction = await hre.ethers.getContractFactory("Auction")
+  console.log('Deploying Auction...')
+  const auction = await upgrades.deployProxy(Auction, [duration, beneficiary.address])
+  await auction.deployed()
+  console.log("auction deployed to:", auction.address)
+
   const NFTMarket = await hre.ethers.getContractFactory("NFTMarket")
-  console.log('Deploying NFTMarket...')
   const nftMarket = await upgrades.deployProxy(NFTMarket)
   await nftMarket.deployed()
   console.log("nftMarket deployed to:", nftMarket.address)
 
+  let symbol = config['token']['symbol']
+  let name = config['token']['name']
+  let contractURIHash = config['token']['contractURI.json']['hash']
+
   const NFT = await hre.ethers.getContractFactory("NFT")
-  const nft = await upgrades.deployProxy(NFT, [nftMarket.address, "Pay-A-Vegan", "VEG"])
+  const nft = await upgrades.deployProxy(NFT, [nftMarket.address, name, symbol])
   await nft.deployed()
+  await nft.setContractURIHash(contractURIHash)
+  await nft.addMinter(owner.address)
+  await nft.setApprovalForAll(auction.address, true);
   console.log("nft deployed to:", nft.address)
 
-  let accounts = await ethers.getSigners()
-  let owner = accounts[0]
-  await nft.addMinter(owner.address)
+  let contract_owner = config['chains'][hre.network.name]['contract_owner']['address']
+  let envChain = config['chains'][hre.network.name]['chain']
 
-  let contract_owner = chain_config[hre.network.name]['contract_owner']['address']
-  let envChain = chain_config[hre.network.name]['chain']
+  let nftmarketaddress = nftMarket.address
+  let nftaddress = nft.address
+  let auctionAddress = auction.address
 
-  let config = `
-  export const nftmarketaddress = "${nftMarket.address}"
-  export const nftaddress = "${nft.address}"
-  export const envChainName = "${envChain.name}"
-  export const envChainId = "${envChain.id}"
-  export const contract_owner = "${contract_owner}"
-  `
-  let data = JSON.stringify(config)
-  fs.writeFileSync('config.js', JSON.parse(data))
-
-  let contract_config = `
-  {
-    "nftmarketaddress" : "${nftMarket.address}",
-    "nftaddress" : "${nft.address}"
+  config['deployed'] = {
+    nftmarketaddress,
+    nftaddress,
+    auctionAddress,
+    envChain,
+    contract_owner
   }
-  `
-  let contract_data = JSON.stringify(contract_config)
-  fs.writeFileSync('config.json', JSON.parse(contract_data))
+
+  fs.writeFileSync('config.json', JSON.stringify(config, null, 4))
 }
 
 main();

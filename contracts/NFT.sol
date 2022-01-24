@@ -16,6 +16,12 @@ contract NFT is Initializable, ERC721URIStorageUpgradeable, UUPSUpgradeable, Own
   using StringsUpgradeable for uint256;
   using CountersUpgradeable for CountersUpgradeable.Counter;
   CountersUpgradeable.Counter private _tokenIds;
+
+  mapping(uint256 => Entitlement) private _entitlementIndex;
+
+  // IPFS content hash of contract-level metadata
+  string private _contractURIHash;
+
   address contractAddress;
   string public version;
   // Maximum amounts of mintable tokens
@@ -31,8 +37,6 @@ contract NFT is Initializable, ERC721URIStorageUpgradeable, UUPSUpgradeable, Own
     string content;
     uint256 date;
   }
-
-  mapping(uint256 => Entitlement) private _entitlementIndex;
 
   // Create a new role identifier for the minter role
   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
@@ -52,6 +56,7 @@ contract NFT is Initializable, ERC721URIStorageUpgradeable, UUPSUpgradeable, Own
     _royaltiesReceiver = msg.sender;
     __AccessControl_init();
     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+    _contractURIHash = '';
   }
 
 	function _authorizeUpgrade(address) internal override onlyOwner {
@@ -191,7 +196,7 @@ contract NFT is Initializable, ERC721URIStorageUpgradeable, UUPSUpgradeable, Own
   }
 
   function createToken(
-    string memory tokenURI,
+    string memory tokenURIHash,
     string memory content,
     uint256 date
   ) external returns (uint256) {
@@ -209,7 +214,8 @@ contract NFT is Initializable, ERC721URIStorageUpgradeable, UUPSUpgradeable, Own
     _tokenIds.increment();
     uint256 newItemId = _tokenIds.current();
     _safeMint(msg.sender, newItemId);
-    _setTokenURI(newItemId, tokenURI);
+    string memory uri = string(abi.encodePacked('ipfs://', tokenURIHash));
+    _setTokenURI(newItemId, uri);
     setApprovalForAll(contractAddress, true);
     _entitlementIndex[newItemId] = Entitlement(
       0,
@@ -220,7 +226,18 @@ contract NFT is Initializable, ERC721URIStorageUpgradeable, UUPSUpgradeable, Own
     return newItemId;
   }
 
+  /**
+   * @notice The IPFS URI of contract-level metadata.
+   */
   function contractURI() public view returns (string memory) {
-    return "https://ipfs.infura.io/ipfs/QmZU1U69Sj8ahignYMfWcDcKE52xtJNSMQzMhagbiHg2mS";
+      return string(abi.encodePacked('ipfs://', _contractURIHash));
+  }
+
+  /**
+   * @notice Set the _contractURIHash.
+   * @dev Only callable by the owner.
+   */
+  function setContractURIHash(string memory newContractURIHash) external onlyOwner {
+      _contractURIHash = newContractURIHash;
   }
 }

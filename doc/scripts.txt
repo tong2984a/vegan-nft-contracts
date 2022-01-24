@@ -1,34 +1,101 @@
-# SYMBOL
-save VEG in deploy.js
+# TOKEN SYMBOL
+## METAMASK, OPENSEA
+## Specify your Token Symbol (e.g. FIRE) in config.json
+e.g. Specify in config.json the followings:
+>  "token": {
+>    "symbol": "__YOUR TOKEN SYMBOL"
+>  }
 
+# TOKEN NAME
+## METAMASK, OPENSEA
+## Specify your Token Symbol (e.g. FIRE) in config.json
+e.g. Specify in config.json the followings:
+>  "token": {
+>    "name": "__YOUR TOKEN NAME__"
+>  }
 
-# COIN JPEG
-## Upload Image for Wallet Registration
-curl -X POST -F file=@coin.jpeg "https://ipfs.infura.io:5001/api/v0/add"
-> {"Name":"coin.jpeg","Hash":"QmdkuYAXeHW5biytdw5Ff626AkdsmocRW4vaGYTMNK6qWv","Size":"8929"}
+# TOKEN Price
+## METAMASK, OPENSEA
+## Specify your Token Unit Price (e.g. 0.00001 ethers) in config.json
+e.g. Specify in config.json the followings:
+>  "token": {
+>    "price": "__YOUR TOKEN UNIT PRICE__"
+>  }
 
+--------------------------------------------------------------------------------
 
-# COIN MP4
-## Upload Image for Landing Page
-curl -X POST -F file=@pay-a-vegan.mp4 "https://ipfs.infura.io:5001/api/v0/add"
-> https://ipfs.infura.io/ipfs/QmdCRJtV5zppqUD9vFwFwHSru6SSdQokQZZAKabuPTWKxE
+# TOKEN PNG
+## METAMASK
+## Upload an image to be used for tracking tokens in MetaMask
+## 1) Upload an image, 2) Specify the resulting URL in config.json
+curl -X POST -F file=@Coin350x350.png "https://ipfs.infura.io:5001/api/v0/add"
+> {"Name":"Coin350x350.png","Hash":"QmSeVUE9oHCuiszAUgfP9XNXtdZhxa2J827HDAyZDxUupe","Size":"223394"}
+e.g. Specify in config.json the followings:
+>  "token": {
+>    "wallet_watchAsset": {
+>      "image": "__YOUR IMAGE URL__"
+>    }
+>  }
 
-## Upload Image for NFT tokenURI
-same as above
+--------------------------------------------------------------------------------
 
-## Upload tokenURI.json
+# TOKEN MP4
+## LANDING PAGE
+## Steps to prepare the image may differ depending on your website
+e.g. /public/token.mp4
+
+## tokenURI.JSON IMAGE
+## METAMASK, OPENSEA
+## 1) Upload an image, 2) Specify the resulting url in tokenURI.json
+curl -X POST -F file=@Coin350x350.png "https://ipfs.infura.io:5001/api/v0/add"
+> {"Name":"Coin350x350.png","Hash":"QmSeVUE9oHCuiszAUgfP9XNXtdZhxa2J827HDAyZDxUupe","Size":"223394"}
+e.g. Specify in tokenURI.json the followings:
+>  {
+>    "description": "Your token description goes here",
+>    "image": "__YOUR IMAGE URL__",
+>    "name": "Your token name goes here"
+>  }
+
+## tokenURI.JSON FILE
+## METAMASK, OPENSEA
+## 1) Upload the tokenURI.json, 2) Specify the resulting url in config.json
 curl -X POST -F file=@tokenURI.json "https://ipfs.infura.io:5001/api/v0/add"
-> https://ipfs.infura.io/ipfs/QmU3nVALJWomQSwqdn5MirCAwZRw7BynJFChLHUAeTEQn6
+> {"Name":"tokenURI.json","Hash":"QmSeKAVvvQ1LAT5hTcm5YHaTTPoh17QCFnZf1cPGyKNkYb","Size":"179"}
+e.g. Specify in config.json the followings:
+>  "token": {
+>    "tokenURI": {
+>      "json": "__YOUR FILE URL__"
+>    }
+>  }
 
+--------------------------------------------------------------------------------
 
-# LOGO JPEG
-## Shortcut Icon
-save as /public/pay-a-vegan.jpeg
+# Favicon PNG
+## METAMASK
+## When your site makes a login request to a MetaMask user, MetaMask may render a modal that display's your site icon.
+## Steps to prepare your favicon may differ depending on your website
+e.g.
+<head>
+  <link rel="shortcut icon" href="https://your-site.com/favicon.png" />
+</head>
 
-## Upload Logo for contractURI
-curl -X POST -F file=@pay-a-vegan.jpeg "https://ipfs.infura.io:5001/api/v0/add"
-> https://ipfs.infura.io/ipfs/QmRegzHn6WEhPGoVggbppheFXY7xEYQcoMs7LCdjgmBzRz
+## OPENSEA STOREFRONT
+## 1) Upload an image, 2) Specify the resulting URL in contractURI.json
+curl -X POST -F file=@favicon.png "https://ipfs.infura.io:5001/api/v0/add"
+> {"Name":"favicon.png","Hash":"QmUZ9VkrEVoyUweevoZggFdeZzvGu91FVoFixwXbvUfYhy","Size":"15021"}
+e.g. Specify in contractURI.json the followings:
+>  {
+>    "description": "Your token description goes here",
+>    "image": "__YOUR IMAGE URL__",
+>    "name": "Your token name goes here",
+>    "external_link": "Your company website url goes here"
+>  }
 
-## Upload contractURI.json
+## contractURI.json FILE
+## 1) Upload the contractURI file, 2) Specify the resulting URL in NFT.sol
 curl -X POST -F file=@contractURI.json "https://ipfs.infura.io:5001/api/v0/add"
-> https://ipfs.infura.io/ipfs/QmZU1U69Sj8ahignYMfWcDcKE52xtJNSMQzMhagbiHg2mS
+> {"Name":"contractURI.json","Hash":"QmTMnkaUCLywWoYu5AUmqpVF9gnSCQSkATEphp2vNh7g9f","Size":"221"}
+e.g. Specify in NFT.sol the followings:
+>  function contractURI() ... {
+>     return __YOUR FILE URL__
+>  }

@@ -1,10 +1,15 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.4;
 
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC721/utils/ERC721HolderUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/security/PullPaymentUpgradeable.sol";
 
-contract SimpleAuction is ERC721HolderUpgradeable {
+contract Auction is Initializable, PullPaymentUpgradeable, ReentrancyGuardUpgradeable, UUPSUpgradeable, OwnableUpgradeable, ERC721HolderUpgradeable {
     // Parameters of the auction. Times are either
     // absolute unix timestamps (seconds since 1970-01-01)
     // or time periods in seconds.
@@ -16,7 +21,7 @@ contract SimpleAuction is ERC721HolderUpgradeable {
     uint public highestBid;
 
     // Allowed withdrawals of previous bids
-    mapping(address => uint) pendingReturns;
+    //mapping(address => uint) pendingReturns;
 
     // Set to true at the end, disallows any change.
     // By default initialized to `false`.
@@ -24,9 +29,10 @@ contract SimpleAuction is ERC721HolderUpgradeable {
 
     address private _nftContract;
     uint256 private _tokenId;
+    string public version;
 
     // Internal state controllable via setters.
-    bool internal shouldRevert = false;
+    bool internal shouldRevert;
 
     // Events that will be emitted on changes.
     event HighestBidIncreased(address bidder, uint amount);
@@ -51,13 +57,35 @@ contract SimpleAuction is ERC721HolderUpgradeable {
     /// Create a simple auction with `biddingTime`
     /// seconds bidding time on behalf of the
     /// beneficiary address `beneficiaryAddress`.
-    constructor(
+    /* constructor(
         uint biddingTime,
         address payable beneficiaryAddress
     ) {
         beneficiary = beneficiaryAddress;
         auctionEndTime = block.timestamp + biddingTime;
+    } */
+
+    /// @custom:oz-upgrades-unsafe-allow constructor
+    constructor() initializer {}
+
+    function initialize(
+        uint biddingTime,
+        address payable beneficiaryAddress) public initializer {
+      __Ownable_init();
+      __UUPSUpgradeable_init();
+      __PullPayment_init();
+      beneficiary = beneficiaryAddress;
+      auctionEndTime = block.timestamp + biddingTime;
+      shouldRevert = false;
+      highestBid = 0;
     }
+
+  	function _authorizeUpgrade(address) internal override onlyOwner {
+      // in general, nothing needs to be done here, because this function
+      // will not be called when deploying the contract. However, resetting
+      // version to "1.0" ensures that downgrading via an upgrade is possible (although risky)
+  		version = "2.0";
+  	}
 
     function createAuction(address nftContract, uint256 tokenId) public {
       _nftContract = nftContract;
@@ -95,29 +123,12 @@ contract SimpleAuction is ERC721HolderUpgradeable {
             // because it could execute an untrusted contract.
             // It is always safer to let the recipients
             // withdraw their money themselves.
-            pendingReturns[highestBidder] += highestBid;
+            //pendingReturns[highestBidder] += highestBid;
+            _asyncTransfer(highestBidder, highestBid);
         }
         highestBidder = msg.sender;
         highestBid = msg.value;
         emit HighestBidIncreased(msg.sender, msg.value);
-    }
-
-    /// Withdraw a bid that was overbid.
-    function withdraw() external returns (bool) {
-        uint amount = pendingReturns[msg.sender];
-        if (amount > 0) {
-            // It is important to set this to zero because the recipient
-            // can call this function again as part of the receiving call
-            // before `send` returns.
-            pendingReturns[msg.sender] = 0;
-
-            if (!payable(msg.sender).send(amount)) {
-                // No need to call throw here, just reset the amount owing
-                pendingReturns[msg.sender] = amount;
-                return false;
-            }
-        }
-        return true;
     }
 
     /// End the auction and send the highest bid
@@ -147,7 +158,9 @@ contract SimpleAuction is ERC721HolderUpgradeable {
         emit AuctionEnded(highestBidder, highestBid);
 
         // 3. Interaction
-        beneficiary.transfer(highestBid);
+        //(bool sent, bytes memory data) = beneficiary.call{value: highestBid}("");
+        //require(sent, "Failed to send Ether");
+        _asyncTransfer(beneficiary, highestBid);
         IERC721Upgradeable(_nftContract).safeTransferFrom(address(this), highestBidder, _tokenId);
     }
 }

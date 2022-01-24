@@ -1,4 +1,4 @@
-const contract_config = require('../config.json')
+const config = require('../config.json')
 const cli_config = require('../cli_config.json')
 const { upgrades } = require('hardhat');
 const hre = require("hardhat");
@@ -7,14 +7,14 @@ async function main() {
   let count = cli_config['cli_1a_create_nft']['count']
   console.log(`\nCreating count:${count} ...`)
 
-  let marketContractAddress = contract_config['nftmarketaddress']
-  let nftContractAddress = contract_config['nftaddress']
+  let marketContractAddress = config['deployed']['nftmarketaddress']
+  let nftContractAddress = config['deployed']['nftaddress']
   const Market = await hre.ethers.getContractFactory("NFTMarket")
   const market = await Market.attach(marketContractAddress)
   const NFT = await hre.ethers.getContractFactory("NFT")
   const nft = await NFT.attach(nftContractAddress)
 
-  const tokenURI = "https://ipfs.infura.io/ipfs/QmU3nVALJWomQSwqdn5MirCAwZRw7BynJFChLHUAeTEQn6"
+  const tokenURIHash = config['token']['tokenURI.json']['hash']
   const tokenDetails = {
     content: {
       membership: 'Lorem Ipsum',
@@ -28,7 +28,7 @@ async function main() {
   let event
   for (let i = 0; i < count; i++) {
     transaction = await nft.createToken(
-      tokenURI,
+      tokenURIHash,
       tokenDetails.content,
       tokenDetails.date,
     )

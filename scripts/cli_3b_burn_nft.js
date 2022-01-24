@@ -1,4 +1,4 @@
-const contract_config = require('../config.json')
+const config = require('../config.json')
 const cli_config = require('../cli_config.json')
 const { upgrades } = require('hardhat');
 const hre = require("hardhat");
@@ -8,8 +8,8 @@ async function main () {
   let lastTokenId = cli_config['cli_3b_burn_nft']['tokens']['lastTokenId']
   console.log(`\nBurning tokenIds from:${firstTokenId} to:${lastTokenId} ...`)
 
-  let marketContractAddress = contract_config['nftmarketaddress']
-  let nftContractAddress = contract_config['nftaddress']
+  let marketContractAddress = config['deployed']['nftmarketaddress']
+  let nftContractAddress = config['deployed']['nftaddress']
   const Market = await hre.ethers.getContractFactory("NFTMarket")
   const market = await Market.attach(marketContractAddress)
   const NFT = await hre.ethers.getContractFactory("NFT")

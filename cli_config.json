@@ -1,31 +1,58 @@
 {
+  "deploy" :
+    {
+      "auction":
+        {
+          "duration_in_seconds" : 120
+        }
+    },
   "cli_1a_create_nft" :
     {
-      "count" : 10
+      "count" : 11
     },
   "cli_1b_put_nft_on_market" :
     {
       "price" : 0.00001,
       "tokens" :
-      {
-        "firstTokenId" : 1,
-        "lastTokenId" : 10
-      }
+        {
+          "firstTokenId" : 1,
+          "lastTokenId" : 10
+        }
     },
   "cli_3a_take_nft_off_market" :
     {
       "items" :
-      {
-        "firstItemId" : 7,
-        "lastItemId" : 8
-      }
+        {
+          "firstItemId" : 1,
+          "lastItemId" : 1
+        }
     },
   "cli_3b_burn_nft" :
     {
       "tokens" :
-      {
-        "firstTokenId" : 7,
-        "lastTokenId" : 8
-      }
+        {
+          "firstTokenId" : 1,
+          "lastTokenId" : 1
+        }
+    },
+  "cli_5a_new_auction" :
+    {
+      "tokenId" : 11
+    },
+  "cli_5b_bid" :
+    {
+      "value_in_ether" : 1
+    },
+  "cli_5c_overbid" :
+    {
+      "value_in_ether" : 2
+    },
+  "cli_5e_end_auction" :
+    {
+      "delay_in_seconds" : 20
+    },
+  "cli_5f_show_bids" :
+    {
+      "days" : 1
     }
 }
