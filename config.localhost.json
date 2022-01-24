@@ -1,0 +1,78 @@
+{
+    "token": {
+        "symbol": "FIRE",
+        "name": "SlashFIRE",
+        "price": "0.00001",
+        "wallet_watchAsset": {
+            "image": "https://ipfs.infura.io/ipfs/QmSeVUE9oHCuiszAUgfP9XNXtdZhxa2J827HDAyZDxUupe"
+        },
+        "tokenURI.json": {
+            "hash": "QmU3nVALJWomQSwqdn5MirCAwZRw7BynJFChLHUAeTEQn6"
+        },
+        "contractURI.json": {
+            "hash": "QmZU1U69Sj8ahignYMfWcDcKE52xtJNSMQzMhagbiHg2mS"
+        }
+    },
+    "chains": {
+        "localhost": {
+            "contract_owner": {
+                "name": "",
+                "address": ""
+            },
+            "chain": {
+                "name": "localhost",
+                "id": "0x7a69"
+            }
+        },
+        "ropsten": {
+            "contract_owner": {
+                "name": "",
+                "address": ""
+            },
+            "chain": {
+                "name": "ropsten",
+                "id": "0x3"
+            }
+        },
+        "rinkeby": {
+            "contract_owner": {
+                "name": "",
+                "address": ""
+            },
+            "chain": {
+                "name": "rinkeby",
+                "id": "0x4"
+            }
+        },
+        "matic": {
+            "contract_owner": {
+                "name": "",
+                "address": ""
+            },
+            "chain": {
+                "name": "matic",
+                "id": "0x89"
+            }
+        },
+        "mumbai": {
+            "contract_owner": {
+                "name": "",
+                "address": ""
+            },
+            "chain": {
+                "name": "mumbai",
+                "id": "0x13881"
+            }
+        }
+    },
+    "deployed": {
+        "nftmarketaddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+        "nftaddress": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+        "auctionAddress": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "envChain": {
+            "name": "localhost",
+            "id": "0x7a69"
+        },
+        "contract_owner": ""
+    }
+}
