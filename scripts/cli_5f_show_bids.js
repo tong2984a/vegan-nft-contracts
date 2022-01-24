@@ -19,7 +19,7 @@ async function main() {
   for (let event of previousBids) {
     if (event.args === undefined) return;
     console.log("sender", event.args[0])
-    console.log("value", event.args[1].toNumber())
+    console.log("value", event.args[1])
     const timestamp = (await event.getBlock()).timestamp;
     console.log("timestamp", timestamp)
     const transactionHash = event.transactionHash;
