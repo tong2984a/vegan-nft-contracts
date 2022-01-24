@@ -74,6 +74,8 @@ contract Auction is Initializable, PullPaymentUpgradeable, ReentrancyGuardUpgrad
       __Ownable_init();
       __UUPSUpgradeable_init();
       __PullPayment_init();
+      __ReentrancyGuard_init();
+      __ERC721Holder_init();
       beneficiary = beneficiaryAddress;
       auctionEndTime = block.timestamp + biddingTime;
       shouldRevert = false;
