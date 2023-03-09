@@ -76,11 +76,11 @@
         }
     },
     "deployed": {
-        "gameAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+        "gameAddress": "0x9E903D5Cc25ff6b8A82855C0dfB3c3926B414745",
         "envChain": {
-            "name": "localhost",
-            "id": "0x539"
+            "name": "mumbai",
+            "id": "0x13881"
         },
-        "contract_owner": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8"
+        "contract_owner": "0x3B67b2e6806233C79b109577B361E9d35c0cd397"
     }
 }
