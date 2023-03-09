@@ -16,12 +16,22 @@
     "chains": {
         "localhost": {
             "contract_owner": {
-                "name": "",
-                "address": ""
+                "name": "hardhat1",
+                "address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8"
             },
             "chain": {
                 "name": "localhost",
-                "id": "0x7a69"
+                "id": "0x539"
+            }
+        },
+        "goerli": {
+            "contract_owner": {
+                "name": "DeployMK20220803",
+                "address": "0x9053211332Fb24802ae06401fae2eAaF38295050"
+            },
+            "chain": {
+                "name": "goerli",
+                "id": "0x5"
             }
         },
         "ropsten": {
@@ -56,8 +66,8 @@
         },
         "mumbai": {
             "contract_owner": {
-                "name": "",
-                "address": ""
+                "name": "SelfServiceNFT",
+                "address": "0x3B67b2e6806233C79b109577B361E9d35c0cd397"
             },
             "chain": {
                 "name": "mumbai",
@@ -66,13 +76,11 @@
         }
     },
     "deployed": {
-        "nftmarketaddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
-        "nftaddress": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
-        "auctionAddress": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "gameAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
         "envChain": {
             "name": "localhost",
-            "id": "0x7a69"
+            "id": "0x539"
         },
-        "contract_owner": ""
+        "contract_owner": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8"
     }
 }

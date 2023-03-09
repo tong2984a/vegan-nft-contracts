@@ -1,0 +1,35 @@
+{
+  "game_1_check_wallet" :
+    {
+      "hostAddress" : "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "hostName" : "Hardhat#1",
+      "player1Address" : "0xdd2fd4581271e230360230f9337d5c0430bf44c0",
+      "player1Name" : "Hardhat#18",
+      "player2Address" : "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199",
+      "player2Name" : "Hardhat#19"
+    },
+  "game_2_makeDeposit" :
+    {
+      "hostAddress" : "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "hostName" : "Hardhat#1",
+      "value_in_ether" : 0.1
+    },
+  "game_3_makeBet" :
+    {
+      "player1Address" : "0xdd2fd4581271e230360230f9337d5c0430bf44c0",
+      "player1Name" : "Hardhat#18",
+      "value_in_ether" : 0.1
+    },
+  "game_4_payout" :
+    {
+      "hostAddress" : "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "hostName" : "Hardhat#1",
+      "player1Address" : "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199",
+      "player1Name" : "Hardhat#19"
+    },
+  "game_5_withdraw" :
+    {
+      "player1Address" : "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199",
+      "player1Name" : "Hardhat#19"
+    }
+}

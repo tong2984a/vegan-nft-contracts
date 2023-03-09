@@ -12,7 +12,7 @@ module.exports = {
   defaultNetwork: "mumbai",
   networks: {
     hardhat: {
-      chainId: 31337
+      chainId: 1337
     },
   /*
     mainnet: {
@@ -24,12 +24,17 @@ module.exports = {
       accounts: [privateKey]
     },
     */
+    goerli: {
+      url: `https://goerli.infura.io/v3/${infuraId}`, //Infura url with projectId
+      accounts: [privateKey], // add the account that will deploy the contract (private key)     
+    },
     rinkeby: {
      url: `https://rinkeby.infura.io/v3/${infuraId}`, //Infura url with projectId
      accounts: [privateKey] // add the account that will deploy the contract (private key)
     },
     mumbai: {
       url: "https://rpc-mumbai.maticvigil.com",
+      //url: `https://polygon-mumbai.infura.io/v3/${infuraId}`,
       accounts: [privateKey]
     },
     matic: {
